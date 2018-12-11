@@ -449,3 +449,15 @@ t.test('parent attribute', function (t) {
   t.equal(doc.children[0].parent.name, 'books');
   t.end();
 });
+
+t.test('destroy()', function (t) {
+  var xmlString = '<books><book title="Twilight"/></books>';
+  var doc = new XmlDocument(xmlString);
+  doc.destroy();
+  t.ok(!doc.children);
+  t.ok(!doc.parent);
+  t.ok(!doc.lastChild);
+  t.ok(!doc.firstChild);
+  t.ok(!doc.attr);
+  t.end();
+});
