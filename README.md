@@ -33,7 +33,7 @@ I haven't tested this myself but [installing `buffer` and `stream` separately](h
 ```js
 var xmldoc = require('xmldoc');
 
-var document = new xmldoc.XmlDocument("<some>xml</some>");
+var document = new xmldoc.XmlDocument("<some>xml</some>", {/*options*/});
 
 // do things
 ```
@@ -43,6 +43,11 @@ var document = new xmldoc.XmlDocument("<some>xml</some>");
 The primary exported class is `XmlDocument`, which you'll use to consume your XML text. `XmlDocument` contains a hierarchy of `XmlElement` instances representing the XML structure.
 
 Both `XmlElement` and `XmlDocument` contain the same members and methods you can call to traverse the document or a subtree.
+
+## Options
+
+* `trim` `{Boolean}` - passed to sax, trims/ignores whitespace and ignore comments 
+* `strict` `{Boolean}` - passet to sax see [strict argument](https://github.com/isaacs/sax-js#arguments)
 
 ## Members
 
