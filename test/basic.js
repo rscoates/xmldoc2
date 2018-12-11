@@ -439,3 +439,13 @@ t.test('toString', function (t) {
 
   t.end();
 })
+
+t.test('parent attribute', function (t) {
+  var xmlString = '<books><book title="Twilight"/></books>';
+  var doc = new XmlDocument(xmlString);
+
+  t.equal(doc.parent, null);
+  t.ok(doc.children[0].parent);
+  t.equal(doc.children[0].parent.name, 'books');
+  t.end();
+});

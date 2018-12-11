@@ -57,6 +57,7 @@ Both `XmlElement` and `XmlDocument` contain the same members and methods you can
 * `children` - an array of `XmlElement` children of the node.
 * `firstChild`, `lastChild` - pretty much what it sounds like; null if no children
 * `line`, `column`, `position`, `startTagPosition` - information about the element's original position in the XML string.
+* `parent` `{XmlElement}` the parent node or null for root element
 
 Each member defaults to a sensible "empty" value like `{}` for `attr`, `[]` for `children`, and `""` for `val`.
 
