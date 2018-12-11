@@ -75,6 +75,10 @@ If you need to do lots of searching through your XML document, I highly recommen
 
 Destructor. Use it always when you finish the processing with xml to help garbage collector free the memory
 
+### getRoot()
+
+Returns root element of xml
+
 ### eachChild(func)
 
 Similar to [underscore's][underscore] `each` method, it will call `func(child, index, array)` for each child of the given node.

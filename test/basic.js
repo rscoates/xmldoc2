@@ -461,3 +461,12 @@ t.test('destroy()', function (t) {
   t.ok(!doc.attr);
   t.end();
 });
+
+t.test('getRoot()', function (t) {
+  var xmlString = '<books><book title="Twilight"/><book><name></name></book></books>';
+  var doc = new XmlDocument(xmlString);
+
+  t.equal(doc.children[0].getRoot(), doc);
+  t.equal(doc.children[1].children[0].getRoot(), doc);
+  t.end();
+});
