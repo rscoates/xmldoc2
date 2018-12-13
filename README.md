@@ -54,14 +54,14 @@ Both `XmlElement` and `XmlDocument` contain the same members and methods you can
 ## Members
 
 * `name` - the node name, like "tat" for `<tat>`. XML "namespaces" are ignored by the underlying [sax-js](https://github.com/isaacs/sax-js) parser, so you'll simply get "office:body" for `<office:body>`.
-* `attr` - an object dict containing attribute properties, like `bookNode.attr.title` for `<book title="...">`.
-* `val` - the string "value" of the node, if any, like "world" for `<hello>world</hello>`.
+* `attrs` - an object dict containing attribute properties, like `bookNode.attr.title` for `<book title="...">`.
+* `value` - the string "value" of the node, if any, like "world" for `<hello>world</hello>`.
 * `children` - an array of `XmlElement` children of the node.
 * `firstChild`, `lastChild` - pretty much what it sounds like; null if no children
 * `line`, `column`, `position`, `startTagPosition` - information about the element's original position in the XML string.
 * `parent` `{XmlElement}` the parent node or null for root element
 
-Each member defaults to a sensible "empty" value like `{}` for `attr`, `[]` for `children`, and `""` for `val`.
+Each member defaults to a sensible "empty" value like `{}` for `attrs`, `[]` for `children`, and `""` for `val`.
 
 It is recommended to work with elements (childrens) by Array's methods like `Array.prototype.forEach()`, `Array.prototype.filter()`, `Array.prototype.find()`, `Array.prototype.map()`, `Array.prototype.reduce()`, ...
 
@@ -80,8 +80,8 @@ let xmlString = `<book>
 </book>`;
 
 let xml = new XmlDocument(xmlString, {trim: true});
-let properName = xml.getAll("author/name").find(name => name.attr.isProper === "true");
-console.log(properName && properName.val); // -> George R. R. Martin
+let properName = xml.getAll("author/name").find(name => name.attrs.isProper === "true");
+console.log(properName && properName.value); // -> George R. R. Martin
 ```
 
 ## Methods

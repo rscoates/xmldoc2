@@ -11,9 +11,9 @@ t.test('options.trim - ignore whitespace', function (t) {
   var parsed = new XmlDocument(xmlString, {trim: true});
   t.equal(parsed.options.trim, true);
   t.equal(parsed.children.length, 4);
-  t.equal(parsed.children[0].val, "");
-  t.equal(parsed.children[2].val, "");
-  t.equal(parsed.children[3].val, "x");
+  t.equal(parsed.children[0].value, "");
+  t.equal(parsed.children[2].value, "");
+  t.equal(parsed.children[3].value, "x");
   t.end();
 });
 

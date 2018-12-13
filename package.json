@@ -1,12 +1,10 @@
 {
-  "name": "xmldoc",
-  "description": "A lightweight XML Document class for JavaScript.",
+  "name": "xmldoc2",
+  "description": "A lightweight XML Document class for JavaScript. For of Nick Farina's xmldoc git://github.com/jaroslavmoravec/xmldoc.git forked from Nick Farina's git://github.com/nickfarina/xmldoc.git v1.1.2",
   "author": {
-    "name": "Nick Farina",
-    "email": "nfarina@gmail.com",
-    "url": "http://nfarina.com"
+    "name": "Jaroslav Moravec"
   },
-  "version": "1.1.2",
+  "version": "1.0.0",
   "main": "./index",
   "scripts": {
     "test": "tap test/*.js",
@@ -17,13 +15,16 @@
   },
   "license": {
     "type": "MIT",
-    "url": "https://raw.github.com/nfarina/xmldoc-js/master/LICENSE"
+    "url": "https://raw.github.com/jaroslavmoravec/xmldoc2-js/master/LICENSE"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nfarina/xmldoc.git"
+    "url": "git://github.com/jaroslavmoravec/xmldoc2.git"
   },
   "contributors": [
+    {
+      "name": "Jaroslav Moravec"
+    },
     {
       "name": "Nick Farina",
       "email": "nfarina@gmail.com"

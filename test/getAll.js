@@ -22,8 +22,8 @@ t.test('getAll() - path: a', function (t) {
   var a = parsed.getAll("a");
 
   t.equal(a.length, 2);
-  t.equal(a[0].attr.id, '1');
-  t.equal(a[1].attr.id, '2')
+  t.equal(a[0].attrs.id, '1');
+  t.equal(a[1].attrs.id, '2')
 
   t.end();
 });
@@ -35,7 +35,7 @@ t.test('getAll() - path: b/a', function (t) {
   var a = parsed.getAll("b/a");
 
   t.equal(a.length, 1);
-  t.equal(a[0].val, 'xxx');
+  t.equal(a[0].value, 'xxx');
   
   t.end();
 });
@@ -47,7 +47,7 @@ t.test('getAll() - path: b/a', function (t) {
   var a = parsed.getAll("b/a");
 
   t.equal(a.length, 1);
-  t.equal(a[0].val, 'xxx');
+  t.equal(a[0].value, 'xxx');
   
   t.end();
 });
@@ -113,7 +113,7 @@ t.test('getAll() - path: a[2]', function (t) {
 
   t.equal(a.length, 1);
   t.equal(a[0].name, 'a');
-  t.equal(a[0].attr.id, '2');
+  t.equal(a[0].attrs.id, '2');
   
   t.end();
 });
@@ -126,7 +126,7 @@ t.test('get() - path: a[2]', function (t) {
 
   t.ok(a);
   t.equal(a.name, 'a');
-  t.equal(a.attr.id, '2');
+  t.equal(a.attrs.id, '2');
   
   t.end();
 });

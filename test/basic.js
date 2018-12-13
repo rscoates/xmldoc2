@@ -53,7 +53,7 @@ t.test('cdata handling', function (t) {
 
   var xmlString = '<hello><![CDATA[<world>]]></hello>';
   var parsed = new XmlDocument(xmlString);
-  t.equal(parsed.val, "<world>");
+  t.equal(parsed.value, "<world>");
   t.end();
 })
 
@@ -61,7 +61,7 @@ t.test('cdata and text handling', function (t) {
 
   var xmlString = '<hello>(<![CDATA[<world>]]>)</hello>';
   var parsed = new XmlDocument(xmlString);
-  t.equal(parsed.val, "(<world>)");
+  t.equal(parsed.value, "(<world>)");
   t.end();
 })
 
@@ -84,7 +84,7 @@ t.test('comment handling', function (t) {
 
   var xmlString = '<hello><!-- World --></hello>';
   var parsed = new XmlDocument(xmlString);
-  t.equal(parsed.val, "");
+  t.equal(parsed.value, "");
   t.end();
 })
 
@@ -92,7 +92,7 @@ t.test('comment and text handling', function (t) {
 
   var xmlString = '<hello>(<!-- World -->)</hello>';
   var parsed = new XmlDocument(xmlString);
-  t.equal(parsed.val, "()");
+  t.equal(parsed.value, "()");
   t.end();
 })
 
@@ -100,7 +100,7 @@ t.test('text, cdata, and comment handling', function (t) {
 
   var xmlString = '<hello>Hello<!-- , --> <![CDATA[<world>]]>!</hello>';
   var parsed = new XmlDocument(xmlString);
-  t.equal(parsed.val, "Hello <world>!");
+  t.equal(parsed.value, "Hello <world>!");
   t.end();
 })
 
@@ -108,7 +108,7 @@ t.test('text with elements handling', function (t) {
 
   var xmlString = '<hello>hello, <world/>!</hello>';
   var parsed = new XmlDocument(xmlString);
-  t.equal(parsed.val, "hello, !");
+  t.equal(parsed.value, "hello, !");
   t.end();
 })
 
@@ -117,7 +117,7 @@ t.test('text before root node', function (t) {
   var xmlString = '\n\n<hello>*</hello>';
   var xml = new XmlDocument(xmlString);
 
-  t.equal(xml.val, '*');
+  t.equal(xml.value, '*');
   t.equal(xml.children.length, 1);
   t.end();
 })
@@ -127,7 +127,7 @@ t.test('text after root node', function (t) {
   var xmlString = '<hello>*</hello>\n\n';
   var xml = new XmlDocument(xmlString);
 
-  t.equal(xml.val, '*');
+  t.equal(xml.value, '*');
   t.equal(xml.children.length, 1);
   t.end();
 })
@@ -137,7 +137,7 @@ t.test('text before root node with version', function (t) {
   var xmlString = '<?xml version="1.0"?>\n\n<hello>*</hello>';
   var xml = new XmlDocument(xmlString);
 
-  t.equal(xml.val, '*');
+  t.equal(xml.value, '*');
   t.equal(xml.children.length, 1);
   t.end();
 })
@@ -147,7 +147,7 @@ t.test('text after root node with version', function (t) {
   var xmlString = '<?xml version="1.0"?><hello>*</hello>\n\n';
   var xml = new XmlDocument(xmlString);
 
-  t.equal(xml.val, '*');
+  t.equal(xml.value, '*');
   t.equal(xml.children.length, 1);
   t.end();
 })
@@ -157,7 +157,7 @@ t.test('comment before root node', function (t) {
   var xmlString = '<!-- hello --><world>*</world>';
   var xml = new XmlDocument(xmlString);
 
-  t.equal(xml.val, '*');
+  t.equal(xml.value, '*');
   t.equal(xml.children.length, 1);
   t.end();
 })
@@ -167,7 +167,7 @@ t.test('comment after root node', function (t) {
   var xmlString = '<hello>*</hello><!-- world -->';
   var xml = new XmlDocument(xmlString);
 
-  t.equal(xml.val, '*');
+  t.equal(xml.value, '*');
   t.equal(xml.children.length, 1);
   t.end();
 })
@@ -189,7 +189,7 @@ t.test('tag locations', function (t) {
   var books = new XmlDocument(xmlString);
 
   var book = books.children[0];
-  t.equal(book.attr.title, "Twilight");
+  t.equal(book.attrs.title, "Twilight");
   t.equal(book.startTagPosition, 8);
   t.equal(book.line, 0);
   t.equal(book.column, 31);
@@ -270,7 +270,7 @@ t.test('destroy()', function (t) {
   t.ok(!doc.parent);
   t.ok(!doc.lastChild);
   t.ok(!doc.firstChild);
-  t.ok(!doc.attr);
+  t.ok(!doc.attrs);
   t.end();
 });
 
