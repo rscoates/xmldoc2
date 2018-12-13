@@ -79,6 +79,30 @@ Destructor. Use it always when you finish the processing with xml to help garbag
 
 Returns root element of xml
 
+### getAll(path)
+
+Returns elements found by path
+
+* `path` `{String}` simplified xpath relative to current node
+  * `/` path elements delimter
+  * `[n]` where `n` is number - returns nth element, indexed from `1` (by W3 standard of XPath)
+  * `*` returns all children of node
+  * path started with `/` means absolute path, eg. get `a` element by `/xml/a` for xml `<xml><a /></xml>`
+
+Returns
+
+* `{XmlElement[]}` - array of found xml elements
+
+### get(path) 
+
+Returns found element or nothing, same as [getAll()](#getAll) method but returns only one element or `null`
+
+* `path` `{String}` simplified xpath relative to current node see [getAll()](#getAll(path))
+
+Returns
+
+* `{XmlElement}` found element else null
+
 ### eachChild(func)
 
 Similar to [underscore's][underscore] `each` method, it will call `func(child, index, array)` for each child of the given node.
