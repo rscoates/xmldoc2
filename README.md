@@ -4,7 +4,9 @@
 
 ## Introduction
 
-`xmldoc` lets you parse XML documents with ease. It's a pure-JavaScript, one-file XML document class with a single dependency on the excellent [`sax`][sax] parser.
+`xmldoc2` lets you parse XML documents with ease. It's a pure-JavaScript, one-file XML document class with a single dependency on the excellent [`sax`][sax] parser.
+
+FORK OF nfarina's [xmldoc](https://github.com/nfarina/xmldoc) 
 
 For more on why I wrote this class, see the [blog post][blog].
 
@@ -16,17 +18,17 @@ See [CHANGELOG.md](./CHANGELOG.md) for details (built with [GitHub Changelog Gen
 
 ## Installation
 
-    npm install xmldoc
+~~ npm install xmldoc2 ~~
 
 Or just download the repository and include it in your `node_modules` directly. Or just download the [single JS file][blob]!
 
-  [blob]: https://github.com/nfarina/xmldoc/blob/master/lib/xmldoc.js
+  [blob]: https://github.com/jaroslavmoravec/xmldoc2/blob/master/lib/xmldoc2.js
 
 ## Installation - React Native
 
 I haven't tested this myself but [installing `buffer` and `stream` separately](https://github.com/nfarina/xmldoc/issues/38) may be necessary for `xmldoc` to work on React Native:
 
-    npm install buffer stream xmldoc
+    ~~ npm install buffer stream xmldoc ~~
 
 ## Usage
 
