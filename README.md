@@ -63,6 +63,27 @@ Both `XmlElement` and `XmlDocument` contain the same members and methods you can
 
 Each member defaults to a sensible "empty" value like `{}` for `attr`, `[]` for `children`, and `""` for `val`.
 
+It is recommended to work with elements (childrens) by Array's methods like `Array.prototype.forEach()`, `Array.prototype.filter()`, `Array.prototype.find()`, `Array.prototype.map()`, `Array.prototype.reduce()`, ...
+
+### Example of find
+
+We want to find name of author, which has proper name (`isProper=true`):
+
+```js
+let xmlString = `<book>
+  <author>
+    <name isProper="true">George R. R. Martin</name>
+  </author>
+  <author>
+    <name>John Smith</name>
+  </author>
+</book>`;
+
+let xml = new XmlDocument(xmlString, {trim: true});
+let properName = xml.getAll("author/name").find(name => name.attr.isProper === "true");
+console.log(properName && properName.val); // -> George R. R. Martin
+```
+
 ## Methods
 
 All methods with `child` in the name operate only on direct children; they do not do a deep/recursive search.
@@ -102,58 +123,6 @@ Returns found element or nothing, same as [getAll()](#getAll) method but returns
 Returns
 
 * `{XmlElement}` found element else null
-
-### eachChild(func)
-
-Similar to [underscore's][underscore] `each` method, it will call `func(child, index, array)` for each child of the given node.
-
-### childNamed(name)
-
-Pass it the name of a child node and it will search for and return the first one found, or `undefined`.
-
-### childrenNamed(name)
-
-Like `childNamed` but returns all matching children in an array, or `[]`.
-
-### childWithAttribute(name,value)
-
-Searches for the first child with the given attribute value. You can omit `value` to just find the first node with the given attribute defined at all.
-
-### descendantWithPath(path)
-
-Searches for a specific "path" using dot notation. Example:
-
-```xml
-<book>
-  <author>
-    <name isProper="true">George R. R. Martin</name>
-    ...
-  </author>
-  ...
-</book>
-```
-
-If you just want the `<name>` node and you have the `XmlElement` for the `<book>` node, you can say:
-
-```js
-var nameNode = bookNode.descendantWithPath("author.name"); // return <name> node
-```
-
-### valueWithPath(path)
-
-Just like `descendantWithPath`, but goes deeper and extracts the `val` of the node. Example:
-
-```js
-var authorName = bookNode.valueWithPath("author.name"); // return "George R. R. Martin"
-```
-
-You can also use the `@` character to request the value of a particular _attribute_ instead:
-
-```js
-var authorIsProper = bookNode.valueWithPath("author.name@isProper"); // return "true"
-```
-
-This is not [XPath][]! It's just a thing I made up, OK?
 
 ### toString([options])
 
